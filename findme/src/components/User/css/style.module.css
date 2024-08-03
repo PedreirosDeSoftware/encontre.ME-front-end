@@ -1,0 +1,55 @@
+.shortContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #f0f0f0;
+  border-radius: 0.8rem;
+}
+
+.shortUserName {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.shortContainer img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.expandedContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #f0f0f0;
+  border-radius: 0.8rem;
+}
+
+.expandedContainer img {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 0.8rem;
+  object-fit: cover;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.expandedUserName {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.expandedLocation {
+  font-size: 1.4rem;
+  color: #666;
+  margin: 0;
+}
