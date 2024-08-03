@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.6rem;
+}
+
+:root {
+    font-size: 62.5%;
+}
+
+div#app {
+    height: 99vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4.2rem;
+    
+}
+
+div#container {
+    width: 40rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4.2rem;
+}
+
+div#container-icons {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 2.4rem;
+}
+
+div.title {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+
+    & div {
+        display: flex;
+        align-items: center;
+    }
+
+    & i {
+        position: relative;
+        top: 4.5rem;
+        right: 18rem;
+    }
+
+    & h1 {
+        font-size: 3rem;
+    }
+}
+
+div#icon-1, div#icon-2 {
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+    padding-block: 1.4rem;
+
+    & h1 {
+        font-size: 2rem;
+    }
+
+    & p {
+        text-align: center;
+        font-size: 1.3rem;
+    }
+}
+
+div#icon-1 {
+    background-color: #35DB5A;
+    border-radius: .8rem;
+}
+
+div#icon-2 {
+    background-color: #2B92FF;
+    border-radius: .8rem;
+}
+
+div.icon-position {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+
+    padding-inline: 2rem;
+    padding-block: 1rem;
+}
+
+i {
+    font-size: 3rem;
+}
+
+@media screen and (min-width: 900px) {
+    div#container {
+        width: 60rem;
+    }
+
+    div.title {
+        width: 60rem;
+        
+        & i {
+            top: 5rem;
+            right: 27rem;
+
+            font-size: 3rem;
+        }
+
+        & i:hover {
+            cursor: pointer;
+        }
+    }
+
+    i {
+        font-size: 5rem;
+    }
+
+    div#icon-1, div#icon-2 {
+        width: 28.4rem;
+        height: 27rem;
+        transition: .5s;
+
+        & h1 {
+            font-size: 3rem;
+        }
+    
+        & p {
+            font-size: 1.6rem;
+        }
+    }
+
+    div#icon-1:hover {
+        background-color: #09dd37;
+    }
+
+    div#icon-2:hover {
+        background-color: #007bff;
+    }
+}

@@ -1,0 +1,106 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 1.6rem;
+    font-family: "Roboto", sans-serif;
+}
+
+:root {
+    font-size: 62.5%;
+}
+
+div#app {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+div.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+
+    margin-bottom: 4.2rem;
+
+    & h1 {
+        font-size: 3rem;
+    }
+
+    & h3 {
+        font-size: 2rem;
+    }
+}
+
+div.container-form {
+    width: 46.7rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 4.2rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 4.2rem;
+}
+
+label {
+    display: none;
+}
+
+div.submit {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & a {
+        color: #2B92FF;
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+    & a:hover {
+        text-decoration: underline;
+    }
+    
+    & button {
+        width: 20rem;
+        height: 4.5rem;
+        border: none;
+        border-radius: .5rem;
+
+        color: #111827;
+        background-color: #2B92FF;
+
+        font-weight: 600;
+        cursor: pointer;
+
+        transition: .5s;
+    }
+
+    & button:hover {
+        background-color: #007bff;
+    }
+}
+
+input[type=email], input[type=password] {
+    background-color: #E5E7EB;
+
+    width: 46rem;
+    height: 5.2rem;
+    padding: 1.2rem;
+
+    border: none;
+    caret-color: #2B92FF;
+    outline: 1.3px solid #2B92FF;
+    border-radius: .5rem;
+}
+
+::placeholder {
+    padding-left: .1rem;
+}
