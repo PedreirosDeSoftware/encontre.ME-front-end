@@ -17,6 +17,12 @@
   padding: 3rem;
 }
 
+.flexRow {
+  width: 100%;
+  display: flex;
+  gap: 16px;
+}
+
 .containerIcons {
   width: 100%;
   display: flex;
@@ -32,19 +38,23 @@
   gap: 1.2rem;
 }
 
-.title div {
+.title{
+  position: relative;
   display: flex;
   align-items: center;
 }
 
-.title i {
-  position: relative;
-  top: 4.5rem;
-  right: 18rem;
+.x {
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  border: none;
+  background: transparent;
+  apparence: none;
 }
 
 .title h1 {
-  font-size: 3rem;
+  font-size: var(--3xl);
 }
 
 .icon {
@@ -58,20 +68,22 @@
 }
 
 .icon h1 {
-  font-size: 2rem;
+  font-size: var(--xl);
 }
 
 .icon p {
   text-align: center;
-  font-size: 1.3rem;
+  font-size: var(--sm);
 }
 
 .icon1 {
+  width: 100%;
   background-color: #35DB5A;
   border-radius: .8rem;
 }
 
 .icon2 {
+  width: 100%;
   background-color: #2B92FF;
   border-radius: .8rem;
 }
@@ -92,6 +104,19 @@
 }
 .iconPosition i {
   font-size: 3rem;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.content .button {
+  width: 100%;
+  display: flex;
+  justify-content: end;
 }
 
 @media screen and (min-width: 900px) {

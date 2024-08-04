@@ -1,30 +1,30 @@
+import { useState } from 'react';
 import styles from './css/style.module.css';
+import { StepDefault } from './steps/default';
+import { StepFirst } from './steps/step1';
+import { StepSecond } from './steps/step2';
+import { StepTerceary } from './steps/step3';
 
 function JoinUs() {
+
+  const [ step, setStep] = useState('default') // default | step1 | step2 | step3
+  const [ isUser, setIsUser] = useState(false)
+
+  function nextStep(step) {
+    setStep(step)
+  }
+
+  function prevStep(step) {
+    setStep(step)
+  }
+
   return (
     <div className={styles.appContainer}>
       <div className={styles.container}>
-        <div className={styles.title}>
-          <i className="ph ph-arrow-left"></i>
-          <h1>Junte-se a nós!</h1>
-          <p>Cada nova conexão pode trazer alguém de volta para casa.</p>
-        </div>
-        <div className={styles.containerIcons}>
-          <div className={styles.icon1}>
-            <div className={styles.iconPosition}>
-              <i className="ph ph-building-office"></i>
-              <h1>Instituição</h1>
-              <p>Vamos ajudar a vida de outras pessoas juntos.</p>
-            </div>
-          </div>
-          <div className={styles.icon2}>
-            <div className={styles.iconPosition}>
-              <i className="ph ph-user"></i>
-              <h1>Usuário</h1>
-              <p>Vamos encontrar seu(a) pessoa querida.</p>
-            </div>
-          </div>
-        </div>
+       {step === 'default' && <StepDefault setIsUser={setIsUser} nextStep={nextStep}/>}
+       {step === 'step1' && <StepFirst isUser={isUser} nextStep={nextStep} prevStep={prevStep}/>}
+       {step === 'step2' && <StepSecond nextStep={nextStep} prevStep={prevStep} />}
+       {step === 'step3' && <StepTerceary prevStep={prevStep}/>}
       </div>
     </div>
   );
