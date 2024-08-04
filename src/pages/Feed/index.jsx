@@ -3,6 +3,8 @@ import styles from './css/style.module.css';
 import User from './../../components/User';
 import Post from './../../components/Post';
 import Search from './../../components/Search';
+import { Link } from 'react-router-dom';
+import { Header } from '../../components/Header';
 
 const mockPosts = [
   {
@@ -33,14 +35,7 @@ function Feed() {
 
   return (
     <main className={styles.container}>
-      <nav className={styles.navbar}>
-        <div className={styles.logoContainer}>
-          <img src="" alt="Logo" />
-        </div>
-        <div className={styles.userContainer}>
-          <User.Short image="https://avatars.githubusercontent.com/u/64737334?v=4" username="Ivandro Neto" />
-        </div>
-      </nav>
+      <Header />
       <section className={styles.searchContainer}>
         <Search onSearch={handleSearch} />
       </section>

@@ -8,26 +8,6 @@
   background-color: #f9f9f9;
 }
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  padding: 1rem 2rem;
-  background-color: #ffffff;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-.logoContainer img {
-  width: 10rem;
-  height: auto;
-}
-
-.userContainer {
-  display: flex;
-  align-items: center;
-}
-
 .searchContainer {
   display: flex;
   justify-content: center;
