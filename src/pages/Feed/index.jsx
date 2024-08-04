@@ -1,10 +1,9 @@
 import{ useState } from 'react';
 import styles from './css/style.module.css';
-import User from './../../components/User';
 import Post from './../../components/Post';
 import Search from './../../components/Search';
-import { Link } from 'react-router-dom';
 import { Header } from '../../components/Header';
+import { CreatePost } from '../../components/CreatePost';
 
 const mockPosts = [
   {
@@ -39,6 +38,11 @@ function Feed() {
       <section className={styles.searchContainer}>
         <Search onSearch={handleSearch} />
       </section>
+      
+      <section className={styles.createPostContainer}>
+        <CreatePost/>
+      </section>
+      
       <section className={styles.feedContainer}>
         {posts.map((post) => (
           <Post

@@ -1,0 +1,19 @@
+.container {
+    width: 100%;
+    padding: 12px;
+    background: var(--gray-50);
+    display: flex;
+    gap: 12px;
+}
+
+.userContainer {
+    display: flex;
+    align-items: center;
+}
+
+.button {
+    border: none;
+    background: var(--gray-50);
+    border-radius: 100px;
+    color: var(--gray-600)
+}

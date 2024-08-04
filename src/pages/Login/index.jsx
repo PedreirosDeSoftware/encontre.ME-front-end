@@ -1,10 +1,16 @@
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './css/style.module.css';
 import { InputComponent } from '../../components/Input';
+import axios from 'axios';
 
 function Login() {
   const navigate = useNavigate()
+
+  const [ email, setEmail ] = useState('')
+  const [ password, setPassword ] = useState('')
+
   function handleAuth(){
+    // const data = axios.post('')
     navigate('/')
   }
 
@@ -17,9 +23,9 @@ function Login() {
       
       <div className={styles.formContainer}>
         <form>
-          <InputComponent label={'e-mail'} name={'email'} type={'email'} placeholder={'Digite seu email'}/>
+          <InputComponent label={'e-mail'} setValue={setEmail} name={'email'} type={'email'} placeholder={'Digite seu email'}/>
 
-          <InputComponent label={'senha'} name={'password'} type={'password'} placeholder={'Digite sua senha'}/>
+          <InputComponent label={'senha'} setValue={setPassword} name={'password'} type={'password'} placeholder={'Digite sua senha'}/>
         </form>
         
         <div className={styles.formSubmit}>
