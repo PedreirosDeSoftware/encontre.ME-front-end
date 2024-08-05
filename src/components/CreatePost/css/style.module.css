@@ -1,9 +1,11 @@
 .container {
     width: 100%;
+    max-width: 600px;
     padding: 12px;
-    background: var(--gray-50);
+    background-color: var(--gray-50);
     display: flex;
     gap: 12px;
+    background-color: #fff;
 }
 
 .userContainer {
@@ -11,9 +13,120 @@
     align-items: center;
 }
 
+.profileImage {
+    width: 4.8rem;
+    height: 4.8rem;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
 .button {
-    border: none;
+    width: 100%;
+    border: 1px solid #ccc;
     background: var(--gray-50);
     border-radius: 100px;
-    color: var(--gray-600)
+    color: var(--gray-600);
+    padding: 0 12px;
+    text-align: start;
+    cursor: pointer;
 }
+
+.containerModal {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(3, 7, 18, 0.6);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    width: 100%;
+    max-width: 700px;
+    border-radius: 8px;
+    background-color: var(--gray-200);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 18px 28px;
+}
+
+.head {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--gray-900);
+}
+
+.head strong {
+    font-weight: 600;
+    font-size: var(--2xl);
+}
+
+.head button {
+    cursor: pointer;
+}
+
+.textarea {
+    width: 100%;
+    height: 300px;
+    background-color: transparent;
+    color: var(--gray-600);
+    border: none;
+    outline: none;
+    resize: none;
+    font-family: Roboto, sans-serif;
+}
+
+.footer {
+    width: 100%;
+    padding-top: 12px;
+    border-top: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttonSecondary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 1.2rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    display: flex;
+    gap: 10px;
+    border: none;
+    border-radius: 0.4rem;
+    background-color: var(--gray-400);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.buttonSecondary:hover {
+    background-color: var(--gray-500);
+  }
+
+.buttonPrimary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 1.2rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .buttonPrimary:hover {
+    background-color: #0056b3;
+  }
