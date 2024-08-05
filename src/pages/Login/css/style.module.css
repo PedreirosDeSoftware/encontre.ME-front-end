@@ -1,0 +1,147 @@
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.headerTitle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 4.2rem;
+}
+
+.headerTitle h1 {
+  font-size: var(--3xl);
+}
+
+.headerTitle p {
+  font-size: var(--xl);
+}
+
+.formContainer {
+  width: 100%;
+  max-width: 46.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4.2rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 4.2rem;
+}
+
+label {
+  display: none;
+}
+
+.formSubmit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.formSubmit a {
+  color: #2B92FF;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.formSubmit a:hover {
+  text-decoration: underline;
+}
+
+.submitButton {
+  width: 100%;
+  max-width: 20rem;
+  height: 4.5rem;
+  border: none;
+  border-radius: .5rem;
+  color: #fff;
+  background-color: #2B92FF;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .5s;
+}
+
+.submitButton:hover {
+  background-color: #007bff;
+}
+
+.inputEmail,
+.inputPassword {
+  background-color: #E5E7EB;
+  width: 100%;
+  height: 5.2rem;
+  padding: 1.2rem;
+  border: none;
+  caret-color: #2B92FF;
+  outline: 1.3px solid #2B92FF;
+  border-radius: .5rem;
+}
+
+::placeholder {
+  padding-left: .1rem;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .headerTitle h1 {
+      font-size: 2.5rem;
+  }
+
+  .headerTitle h3 {
+      font-size: 1.8rem;
+  }
+
+  .formContainer {
+      gap: 3rem;
+  }
+
+  form {
+      gap: 3rem;
+  }
+
+  .formSubmit {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2rem;
+  }
+
+  .submitButton {
+      width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+      font-size: 50%;
+  }
+
+  .headerTitle h1 {
+      font-size: 2rem;
+  }
+
+  .headerTitle h3 {
+      font-size: 1.5rem;
+  }
+
+  .formContainer {
+      gap: 2rem;
+  }
+
+  form {
+      gap: 2rem;
+  }
+
+  .formSubmit {
+      align-items: center;
+  }
+}

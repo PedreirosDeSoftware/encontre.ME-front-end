@@ -1,0 +1,46 @@
+/* style.module.css */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 2rem;
+  background-color: #f9f9f9;
+}
+
+.searchContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.createPostContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.feedContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+@media screen and (min-width: 900px) {
+  .navbar {
+      padding: 1rem 5rem;
+  }
+
+  .searchContainer {
+      padding: 2rem 5rem;
+  }
+
+  .feedContainer {
+      padding: 2rem 5rem;
+  }
+}

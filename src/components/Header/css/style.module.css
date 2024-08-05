@@ -1,0 +1,40 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 2rem;
+    background-color: transparent;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.logoContainer img {
+    width: 15rem;
+    height: auto;
+}
+
+.links {
+    color: var(--gray-950);
+    text-decorantion: none;
+    width: fit-content;
+    display: flex;
+    gap: 16px;
+    padding: 16px 12px;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+.links a {
+    color: var(--gray-950);
+    font-weight: 600;
+    font-size: var(--base)
+}
+
+.links a:hover {
+    color: var(--gray-800);
+}
+
+.userContainer {
+    display: flex;
+    align-items: center;
+}
