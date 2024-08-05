@@ -1,5 +1,5 @@
 <h1 align="center">
-    Quebra-Galho
+    Encontre Me
 </h1>
 
 <div align="center">
@@ -29,7 +29,7 @@
 </h1>
 
 <h4 align="center">
-	 📝 Quebra-galho ⏰📈 Loading...  📝
+	 📝 EncontreMe ⏰📈 Loading...  📝
 </h4>
 
 ## Descrição
