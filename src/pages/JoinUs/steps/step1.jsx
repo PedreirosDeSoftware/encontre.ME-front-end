@@ -2,28 +2,60 @@ import { ArrowLeft, ArrowRight } from '@phosphor-icons/react';
 import styles from '../css/style.module.css';
 import { InputComponent } from '../../../components/Input';
 
-export function StepFirst({isUser, nextStep, prevStep}) {
-    return(
+export function StepFirst({ isUser, nextStep, prevStep, handleFormData }) {
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        handleFormData({ [name]: value });
+    };
+
+    return (
         <>
             <div className={styles.title}>
                 <button onClick={() => prevStep('default')} className={styles.x}>
                     <ArrowLeft size={24} color='#111827' />
                 </button>
-                <h1>Ficamos super felizes por se juntar a nós </h1>
+                <h1>Ficamos super felizes por se juntar a nós</h1>
                 <p>Informe algumas informações sobre você</p>
             </div>
             <div className={styles.content}>
-                <InputComponent label={'Nome'} name={'name'} type={'text'} placeholder={isUser ? 'Digite seu nome' : 'Digite o nome da instituição'}/>
-                {!isUser && <InputComponent label={'Nome do dono'} name={'authorName'} type={'text'} placeholder={'Digite o nome do dono da instituição'}/>}
-                
+                <InputComponent
+                    label={'Nome'}
+                    name={'name'}
+                    type={'text'}
+                    placeholder={isUser ? 'Digite seu nome' : 'Digite o nome da instituição'}
+                    onChange={handleChange}
+                />
+                {!isUser && (
+                    <InputComponent
+                        label={'Nome do dono'}
+                        name={'authorName'}
+                        type={'text'}
+                        placeholder={'Digite o nome do dono da instituição'}
+                        onChange={handleChange}
+                    />
+                )}
                 <div className={styles.flexRow}>
-                    <InputComponent label={'Numero'} name={'tel'} type={'tel'} placeholder={'Informe seu número de celular'}/>
-                    <InputComponent label={isUser ? 'cpf' : 'cnpj' } name={'cpfOrCpnj'} type={'text'} placeholder={isUser ? 'Informe seu cpf' : 'Informe o cnpj'}/>
+                    <InputComponent
+                        label={'Número'}
+                        name={'phone'}
+                        type={'tel'}
+                        placeholder={'Informe seu número de celular'}
+                        onChange={handleChange}
+                    />
+                    <InputComponent
+                        label={isUser ? 'CPF' : 'CNPJ'}
+                        name={'cnpj_cpf'}
+                        type={'text'}
+                        placeholder={isUser ? 'Informe seu CPF' : 'Informe o CNPJ'}
+                        onChange={handleChange}
+                    />
                 </div>
-            <div className={styles.button}>
-                <button onClick={() => nextStep('step2')} className={styles.submitButton}>continuar <ArrowRight size={24} color={'#111827'}/></button>
-            </div>
+                <div className={styles.button}>
+                    <button onClick={() => nextStep('step2')} className={styles.submitButton}>
+                        Continuar <ArrowRight size={24} color={'#111827'} />
+                    </button>
+                </div>
             </div>
         </>
-    )
+    );
 }

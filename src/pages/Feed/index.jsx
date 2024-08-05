@@ -1,35 +1,55 @@
-import{ useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './css/style.module.css';
 import User from './../../components/User';
 import Post from './../../components/Post';
 import Search from './../../components/Search';
 
-const mockPosts = [
-  {
-    fullname: 'Truetel - Kirlin',
-    profileIcon: 'https://avatars.githubusercontent.com/u/64737334?v=4',
-    profileName: 'Truetel - Kirlin',
-    location: 'Westfield - Indie',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    image: 'https://avatars.githubusercontent.com/u/64737334?v=4',
-  },
-  {
-    fullname: 'Ivandro Neto',
-    profileIcon: 'https://avatars.githubusercontent.com/u/64737334?v=4',
-    profileName: 'Ivandro Neto',
-    location: '',
-    description: '',
-    image: 'https://avatars.githubusercontent.com/u/64737334?v=4',
-  },
-];
-
 function Feed() {
-  const [posts, setPosts] = useState(mockPosts);
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [currentUser, setCurrentUser] = useState(null); // Adiciona estado para o usuário logado
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const response = await fetch('http://localhost:3333/api/user'); // Ajuste o endpoint se necessário
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        setCurrentUser(data);
+      } catch (error) {
+        setError(error.message);
+      }
+    };
+
+    const fetchPosts = async () => {
+      try {
+        const response = await fetch('http://localhost:3333/api/posts'); // Ajuste o endpoint se necessário
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        setPosts(data);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUser();
+    fetchPosts();
+  }, []); // Dependência vazia significa que isso roda uma vez quando o componente monta
 
   const handleSearch = (query) => {
     console.log('Search query:', query);
-    // Implement search functionality here
-  }
+    // Implemente a funcionalidade de busca aqui
+  };
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
 
   return (
     <main className={styles.container}>
@@ -38,7 +58,12 @@ function Feed() {
           <img src="" alt="Logo" />
         </div>
         <div className={styles.userContainer}>
-          <User.Short image="https://avatars.githubusercontent.com/u/64737334?v=4" username="Ivandro Neto" />
+          {currentUser && (
+            <User.Short
+              image={currentUser.profileImage} // Supondo que a resposta da API tenha um campo profileImage
+              username={currentUser.username}  // Supondo que a resposta da API tenha um campo username
+            />
+          )}
         </div>
       </nav>
       <section className={styles.searchContainer}>
@@ -47,12 +72,11 @@ function Feed() {
       <section className={styles.feedContainer}>
         {posts.map((post) => (
           <Post
-            key={post.fullname}
-            creatorProfile={post.profileIcon}
-            creatorName={post.profileName}
+            key={post.id} // Use um identificador único se disponível
+            image={post.image}
+            username={post.profileName}
             location={post.location}
             description={post.description}
-            image={post.image}
           />
         ))}
       </section>
