@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import styles from './css/style.module.css';
 import Post from './../../components/Post';
 import Search from './../../components/Search';
+import User from './../../components/User';
+import { CreatePost } from '../../components/CreatePost';
 
 function Feed() {
   const [posts, setPosts] = useState([]);
