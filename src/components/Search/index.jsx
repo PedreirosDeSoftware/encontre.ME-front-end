@@ -19,6 +19,20 @@ const Search = ({ onSearch }) => {
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Qual o nome da pessoa que deseja encontrar?"
       />
+      <input
+        type="text"
+        className={styles.searchInput}
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        placeholder="Estado"
+      />
+      <input
+        type="text"
+        className={styles.searchInput}
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        placeholder="Cidade"
+      />
       <button className={styles.searchButton} onClick={handleSearch}>
         Buscar
       </button>

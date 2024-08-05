@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './css/style.module.css';
 import { InputComponent } from '../../components/Input';
+import axios from 'axios';
 
 function Login() {
   const navigate = useNavigate();
