@@ -25,7 +25,7 @@
 <p align="center"> Plataforma de Busca e Diculgação de pessoas desaparecidas </p>
 
 <h1 align="center">
-    <img width="600" style="border-radius: 10px" height="auto" alt="Home" title="capa do projeto" src="./src/assets/logo.svg" />
+    <img width="600" style="border-radius: 10px" height="auto" alt="Home" title="capa do projeto" src="./src/assets/Logo.svg" />
 </h1>
 
 <h4 align="center">
