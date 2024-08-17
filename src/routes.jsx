@@ -1,28 +1,15 @@
-import {
-    createBrowserRouter,
-    RouterProvider,
-} from "react-router-dom";
+import { Routes, Route } from 'react-router-dom';
 import Login from './pages/Login/index.jsx'
 import Feed from './pages/Feed/index.jsx'
 import JoinUs from "./pages/JoinUs/index.jsx";
+import ProtectedRoute from "./components/ProtectedRoute/index.jsx";
 
-const router = createBrowserRouter([
-    {
-      path: "/login",
-      element: <Login/>,
-    },
-    {
-      path: "/register",
-      element: <JoinUs/>,
-    },
-    {
-      path: "/",
-      element: <Feed/>,
-    },
-  ]);
-
-export function Routes() {
+export function Router() {
     return (
-        <RouterProvider router={router} />
+      <Routes>
+      <Route path="/" element={<ProtectedRoute><Feed /></ProtectedRoute>} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<JoinUs />} />
+    </Routes>
     )
 }

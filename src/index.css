@@ -20,8 +20,8 @@
 
   --succes: #35DB5A;
   --succes-light: #61ED80;
-  --succes: #DC3545;
-  --succes: #F44556;
+  --error: #DC3545;
+  --error-light: #F44556;
 
   /* Font */
   --3xl: 3rem;
