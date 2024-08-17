@@ -68,6 +68,7 @@ function Feed() {
           const creator = userCreator.data.user;
           return {
             id: post.id,
+            avatarImage: creator.avatarImage,
             username: creator.name,
             location: `${creator.state} - ${creator.city}`,
             image: post.photo,
@@ -135,8 +136,9 @@ function Feed() {
           posts.map((post) => (
             <Post
               key={post.id} // Use a unique identifier if available
+              creatorProfile={post.avatarImage}
               image={post.image}
-              username={post.username}
+              creatorName={post.username}
               location={post.location}
               description={post.description}
             />
