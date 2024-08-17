@@ -4,9 +4,10 @@ import Post from './../../components/Post';
 import Search from './../../components/Search';
 import User from './../../components/User';
 import { CreatePost } from '../../components/CreatePost';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import { UseAuth } from '../../context/AuthContext';
+import { Loading } from '../../components/Loading';
 
 function Feed() {
   const navigate = useNavigate();
@@ -71,7 +72,7 @@ function Feed() {
             avatarImage: creator.avatarImage,
             username: creator.name,
             location: `${creator.state} - ${creator.city}`,
-            image: post.photo,
+            image: `http://localhost:3333/uploads/${post.photo}`,
             description: post.description
           };
         });
@@ -94,32 +95,34 @@ function Feed() {
     // Implement search functionality here
   };
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
+  if (loading) return <Loading/>;
+  if (error) return navigate('/login');
 
   return (
     <main className={styles.container}>
       <nav className={styles.navbar}>
         <div className={styles.logoContainer}>
-          <img src="" alt="Logo" />
+          <img src="Logo.svg" alt="Logo" />
+        </div>
+        <div className={styles.links}>
+            <Link to={'/'}><span className={styles.item}>Encontrar pessoas</span></Link>
+            <Link to={'/sos'}><span className={`${styles.item} ${styles.alert}`}>S.O.S</span></Link>
+            <Link to={'/instituicoes'}><span className={styles.item}>Encontrar instituições</span></Link>
         </div>
         <div className={styles.userContainer}>
           {currentUser ? (
-            <div className={styles.navbar}>
-              <User.Short
+            <User.Short
                 image={currentUser.avatarImage || ""} // Replace with actual image URL
                 username={currentUser.name} // Replace with actual username
-              />
-              <button onClick={handleLogout} className={styles.logoutBtn}>{'>'}</button>
-            </div>
+                />
           ) : (
             <p>Loading user data...</p>
           )}
+          <button onClick={handleLogout} className={styles.logoutBtn}><img src="logout.png" alt="logout"/></button>
         </div>
       </nav>
-      <section className={styles.searchContainer}>
+      
         <Search onSearch={handleSearch} />
-      </section>
       
       <section className={styles.createPostContainer}>
         {currentUser ? (

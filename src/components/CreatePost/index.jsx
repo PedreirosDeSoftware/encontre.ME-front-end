@@ -1,13 +1,17 @@
 import { Images, X } from '@phosphor-icons/react';
 import { useState } from 'react';
+import UserIcon from '../UserIcon';
 import styles from './css/style.module.css';
+import axios from 'axios';
+import { UseAuth } from '../../context/AuthContext';
+import { Navigate } from 'react-router-dom';
 
-export const CreatePost = ({ userAvatar = "", username = "" }) => {
+export const CreatePost = ({ userAvatar, username }) => {
   const [isOpenModal, setIsOpenModal] = useState(false);
 
   return (
     <div className={styles.container}>
-      <img className={styles.profileImage} src={userAvatar} alt={username} />
+      <UserIcon name={username} avatarImage={userAvatar} />
       
       <button className={styles.button} onClick={() => setIsOpenModal(true)}>
         publique quem desapareceu
@@ -19,20 +23,59 @@ export const CreatePost = ({ userAvatar = "", username = "" }) => {
 };
 
 function ModalCreatePost({ setIsOpenModal }) {
-  const [postContent, setPostContent] = useState(""); // State to handle textarea content
-  const [selectedImage, setSelectedImage] = useState(null); // State to handle image upload
+  const { user: token } = UseAuth(); // Obter o token do contexto de autenticação
+  const [postContent, setPostContent] = useState(""); 
+  const [selectedImage, setSelectedImage] = useState(null); 
 
-  const handlePublish = () => {
-    // Add validation here before publishing the post
+  const handlePublish = async () => {
     if (!postContent.trim()) {
       alert("Por favor, digite o nome e informações relevantes.");
       return;
     }
 
-    // Handle post submission logic here
+    const formData = new FormData();
+    formData.append('fullName', postContent);  // Assuming `postContent` is the full name
+    formData.append('description', postContent);  // Add description if it's different
+    formData.append('contact', '');  // Add a field for contact information, replace '' with actual data
+  if (selectedImage) {
+    formData.append('images', selectedImage);  // Append the image file
+  }
 
-    // Close the modal after submission
+    try {
+      const authResponse = await axios.get("http://localhost:3333/api/user/authorization", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (!authResponse) {
+        throw new Error("Unauthorized");
+      }
+
+      await axios.post(
+        `http://localhost:3333/api/user/${authResponse.data.authToken.id}/posts/create`,
+        formData,  // Envia o formData com o conteúdo e a imagem
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'multipart/form-data',  // Define o tipo de conteúdo apropriado
+          },
+        }
+      );
+      window.location.reload();
+    } catch (error) {
+      console.error("Erro ao criar o post:", error);
+    }
+
     setIsOpenModal(false);
+  };
+
+  const handleUpload = (e) => {
+    const image = e.target.files[0];
+    if (image) {
+      setSelectedImage(image);
+      console.log("Imagem carregada:", image.name);
+    }
   };
 
   return (
@@ -50,11 +93,21 @@ function ModalCreatePost({ setIsOpenModal }) {
           value={postContent}
           onChange={(e) => setPostContent(e.target.value)}
         />
+        <div className={styles.preview}>
+          {selectedImage && (
+            <img src={URL.createObjectURL(selectedImage)} alt="Preview da imagem carregada" className={styles.imagePreview} />
+          )}
+        </div>
         <div className={styles.footer}>
-          <button className={styles.buttonSecondary} onClick={() => {/* Handle image upload logic here */}}>
+          <div className={styles.buttonSecondary}>
+            <input 
+              type='file' 
+              name='Adicionar imagem' 
+              onChange={handleUpload} 
+              accept="image/*"
+            />
             <Images size={24} weight='fill'/>
-            Adicionar imagem
-          </button>
+          </div>
           <button className={styles.buttonPrimary} onClick={handlePublish}>
             publicar
           </button>

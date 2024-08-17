@@ -18,7 +18,7 @@ function JoinUs() {
     city: '',
     cep: '',
     address: '',
-    avatarImage : 'picture.jpg'
+    avatarImage : ''
   });
 
   const nextStep = (nextStep) => {
