@@ -1,0 +1,449 @@
+body {
+    background-color: #F2F4F3;
+}
+
+/* Container Styles */
+.container {
+    width: 100dvw;
+    padding-inline: 10rem;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Button Styles */
+.buttons {
+    border-radius: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border: none;
+    padding: 1rem 2rem;
+}
+
+.button-entrar {
+    background-color: #a6a6a6;
+    color: white;
+    transition: .5s;
+}
+
+.button-entrar:hover {
+    background-color: #797979;
+}
+
+.buttons-blue {
+    background-color: #227EDF;
+    color: white;
+    transition: .5s;
+}
+
+.buttons-blue:hover {
+    background-color: #005bbc;
+}
+
+.buttons-white {
+    background-color: #FFFFFF;
+    color: black;
+    transition: .5s;
+}
+
+.buttons-white:hover {
+    background-color: #e9e8e8;
+}
+
+button, li {
+    cursor: pointer;
+}
+
+.buttons-blue a {
+    text-decoration: none;
+    color: white;
+}
+
+.buttons-white a {
+    text-decoration: none;
+    color: black;
+}
+
+li a {
+    text-decoration: none;
+    color: black;
+}
+
+/* Section Styles */
+.style-section {
+    background-color: #227EDF;
+    color: #FFFFFF;
+    border-radius: 5rem;
+    width: 70rem;
+    height: 43rem;
+    padding-inline: 6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-evenly;
+}
+
+.style-section div {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    
+}
+.style-section p{
+    font-size: 1.6rem;
+}
+
+.style-section div h1 {
+    font-weight: 700;
+    font-size: 3.2rem;
+}
+
+/* Header Styles */
+header {
+    width: 100%;
+    height: 8.5rem;
+    display: flex;
+    position: fixed;
+    background-color: #F2F4F3;
+    z-index: 5;
+}
+
+#menu-bg { /* div do menu hamburguer */
+    display: none;
+}
+
+header img { /* logo */
+    width: 16rem;
+}
+
+header nav {
+    display: flex;
+}
+
+header ul:first-child {
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+    list-style: none;
+    padding-right: 2.5rem;
+}
+
+header ul:last-child {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+}
+
+header li {
+    font-weight: 500;
+    position: relative;
+}
+
+.bolinha li a::before {
+  content: "";
+  position: absolute;
+  top: 22px;
+  bottom: -5px; /* Ajusta a posição da bolinha em relação ao bottom */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #227EDF; /* Cor da bolinha */
+  opacity: 0; /* Inicialmente a bolinha está invisível */
+  transition: opacity 0.3s ease-in-out;
+}
+
+.bolinha li a:focus::before {
+    opacity: 1;
+}
+
+/* Main Content Styles */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+main .img-initial {
+    position: relative;
+    width: 100%;
+    height: 100dvh;
+    margin-inline: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-initial h1 {
+    width: auto;
+}
+
+main .img-initial .bg {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    place-items: center;
+    z-index: -1;
+    opacity: .12;
+}
+
+
+main .img-initial h1 {
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 3.2rem;
+}
+
+main .img-initial div {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15rem;
+}
+
+main .img-initial div h1 {
+    font-family: "Inter", sans-serif;
+    font-weight: 900;
+    text-align: center;
+}
+
+/* First Section Styles */
+.first-section {
+    display: flex;
+    width: 75rem;
+    height: auto;
+    /* max-height: 50rem; */
+    padding: 6rem;
+    border-radius: 5rem;
+    background-color: #227EDF;
+    color: #FFFFFF;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    gap: 4rem;
+}
+
+.first-section .title-about {
+    position: relative;
+    font-size: 4.3rem;
+    padding: 2rem;
+}
+
+.first-section .title-about::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background-color: #F2F4F3;
+    border-radius: 10px;
+    bottom: 0;
+    left: 0;
+}
+
+.first-section div {
+    width: 23rem;
+    height: 2px;
+    background-color: white;
+}
+
+.first-section p {
+    text-align: justify;
+    font-size: 1.4rem;
+}
+
+/* Pegadas1 Styles */
+div.pegadas1 {
+    position: relative;
+}
+
+div.pegadas1 img {
+    z-index: -1;
+}
+
+div.pegadas1 img:nth-child(1) {
+    width: 22rem;
+    position: absolute;
+    top: -3rem;
+    left: -50rem;
+    transform: rotate(200deg);
+}
+
+div.pegadas1 img:nth-child(2) {
+    width: 72rem;
+    position: absolute;
+    top: 74rem;
+    right: -65rem;
+    transform: rotate(33deg);
+}
+
+div.pegadas1 img:nth-child(3) {
+    width: 22rem;
+    position: absolute;
+    top: 72rem;
+    right: 35rem;
+    transform: rotate(235deg);
+}
+
+div.pegadas1 img:nth-child(4) {
+    width: 22rem;
+    position: absolute;
+    top: 102rem;
+    right: 71rem;
+    transform : rotate(223deg);
+}
+
+/* Container Section Styles */
+.container-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 13rem;
+    margin-top: 25rem;
+}
+
+.container-section h1 {
+    font-weight: 900;
+    font-size: 6.4rem;
+}
+
+.container-section .second-section {
+    margin-right: 40rem;
+}
+
+.container-section .third-section {
+    margin-left: 40rem;
+}
+
+/* News Section Styles */
+.sec-news {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 13rem;
+}
+
+.sec-news .title-news {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.4rem;
+    padding-bottom: 13rem;
+}
+
+.sec-news .title-news h1 {
+    font-weight: 700;
+    font-size: 3.2rem;
+}
+
+.sec-news .title-news div {
+    background-color: #227EDF;
+    width: 24rem;
+    height: 2px;
+}
+
+.sec-news .news {
+    display: flex;
+    flex-direction: row;
+}
+
+.sec-news .news .cont-news {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 2.2rem;
+    padding: 9rem 7rem 9rem;
+    background-color: #DB504A;
+}
+
+.sec-news .news .cont-news h1 {
+    color: #F2F4F3;
+    font-size: 3.8rem;
+    font-family: "Inter", sans-serif;
+    font-weight: 900;
+}
+
+.sec-news .news .cont-news div {
+    background-color: #F2F4F3;
+    width: 20rem;
+    height: 2px;
+}
+
+.sec-news .news .cont-news p {
+    font-weight: 400;
+    color: white;
+    text-align: justify;
+}
+
+.news-image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.news-image-cont {
+    width: 40%;
+}
+
+/* Footer Styles */
+.contact {
+    height: 100dvh;
+}
+
+.contact .cont-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6.2rem;
+}
+
+.contact .cont-contact .title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact .cont-contact .title h2 {
+    padding-top: 14rem;
+    font-size: 3.2rem;
+}
+
+.contact .cont-contact .title h1, h2 {
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+}
+
+.contact .cont-contact .title h1 {
+    font-size: 4rem;
+}
+
+.contact .cont-contact .title .line {
+    width: 23rem;
+    height: 2px;
+    background-color: #227EDF;
+    margin-top: 1.6rem;
+    margin-bottom: 6.2rem;
+}
+
+.contact .cont-contact p {
+    width: 90rem;
+    font-size: 1.6rem;
+    text-align: center;
+}
