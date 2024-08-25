@@ -32,6 +32,16 @@ body {
     transition: .5s;
 }
 
+.button-junte-se {
+    background-color: #227EDF;
+    color: white;
+    transition: .5s;
+}
+
+.button-junte-se:hover {
+    background-color: #005bbc;
+}
+
 .button-entrar:hover {
     background-color: #797979;
 }
@@ -225,18 +235,17 @@ main .img-initial div h1 {
 
 /* First Section Styles */
 .first-section {
-    display: flex;
-    width: 75rem;
-    height: auto;
-    /* max-height: 50rem; */
-    padding: 6rem;
-    border-radius: 5rem;
     background-color: #227EDF;
     color: #FFFFFF;
+    width: 75rem;
+    height: auto;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
     gap: 4rem;
+    justify-content: space-around;
+    padding: 6rem;
+    border-radius: 5rem;
 }
 
 .first-section .title-about {
@@ -368,6 +377,7 @@ div.pegadas1 img:nth-child(4) {
     width: 60%;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: 2.2rem;
     padding: 9rem 7rem 9rem;
     background-color: #DB504A;
@@ -402,7 +412,7 @@ div.pegadas1 img:nth-child(4) {
     width: 40%;
 }
 
-/* Footer Styles */
+/* contacts Styles */
 .contact {
     height: 100dvh;
 }
