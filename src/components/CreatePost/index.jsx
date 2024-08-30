@@ -1,17 +1,17 @@
 import { Images, X } from '@phosphor-icons/react';
 import { useState } from 'react';
-import UserIcon from '../UserIcon';
+import AccountIcon from '../AccountIcon';
 import styles from './css/style.module.css';
 import axios from 'axios';
 import { UseAuth } from '../../context/AuthContext';
 import { Navigate } from 'react-router-dom';
 
-export const CreatePost = ({ userAvatar, username }) => {
+export const CreatePost = ({ accountAvatar, accountname }) => {
   const [isOpenModal, setIsOpenModal] = useState(false);
 
   return (
     <div className={styles.container}>
-      <UserIcon name={username} avatarImage={userAvatar} />
+      <AccountIcon name={accountname} avatarImage={accountAvatar} />
       
       <button className={styles.button} onClick={() => setIsOpenModal(true)}>
         publique quem desapareceu
@@ -23,7 +23,7 @@ export const CreatePost = ({ userAvatar, username }) => {
 };
 
 function ModalCreatePost({ setIsOpenModal }) {
-  const { user: token } = UseAuth(); // Obter o token do contexto de autenticação
+  const { account: token } = UseAuth(); // Obter o token do contexto de autenticação
   const [postContent, setPostContent] = useState(""); 
   const [selectedImage, setSelectedImage] = useState(null); 
 
@@ -42,7 +42,7 @@ function ModalCreatePost({ setIsOpenModal }) {
   }
 
     try {
-      const authResponse = await axios.get("http://localhost:3333/api/user/authorization", {
+      const authResponse = await axios.get("http://localhost:3333/api/account/authorization", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -53,7 +53,7 @@ function ModalCreatePost({ setIsOpenModal }) {
       }
 
       await axios.post(
-        `http://localhost:3333/api/user/${authResponse.data.authToken.id}/posts/create`,
+        `http://localhost:3333/api/account/${authResponse.data.authToken.id}/posts/create`,
         formData,  // Envia o formData com o conteúdo e a imagem
         {
           headers: {

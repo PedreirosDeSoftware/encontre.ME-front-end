@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import styles from './css/style.module.css';
 import Post from './../../components/Post';
 import Search from './../../components/Search';
-import User from './../../components/User';
+import Account from './../../components/Account';
 import { CreatePost } from '../../components/CreatePost';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
@@ -11,11 +11,11 @@ import { Loading } from '../../components/Loading';
 
 function Feed() {
   const navigate = useNavigate();
-  const [currentUser, setCurrentUser] = useState(null); // State to hold the current user data
+  const [currentAccount, setCurrentAccount] = useState(null); // State to hold the current account data
   const [posts, setPosts] = useState([]); // Initialize posts as an empty array
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const { user: token, logout } = UseAuth(); // Get the token from the AuthContext
+  const { account: token, logout } = UseAuth(); // Get the token from the AuthContext
 
   const handleLogout = () => logout();
 
@@ -25,23 +25,23 @@ function Feed() {
       return;
     }
 
-    const fetchUser = async () => {
+    const fetchAccount = async () => {
       try {
-        const authResponse = await axios.get("http://localhost:3333/api/user/authorization", {
+        const authResponse = await axios.get("http://localhost:3333/api/account/authorization", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
 
         if (authResponse.data.authToken) {
-          const userResponse = await axios.get(`http://localhost:3333/api/user/${authResponse.data.authToken.id}`, {
+          const accountResponse = await axios.get(`http://localhost:3333/api/account/${authResponse.data.authToken.id}`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
           });
 
-          if (userResponse.data && userResponse.data.user) {
-            setCurrentUser(userResponse.data.user); // Set the current user data in state
+          if (accountResponse.data && accountResponse.data.account) {
+            setCurrentAccount(accountResponse.data.account); // Set the current account data in state
           } else {
             navigate('/login');
           }
@@ -61,16 +61,16 @@ function Feed() {
 
         const postList = response.data.posts || [];
         const postPromises = postList.map(async (post) => {
-          const userCreator = await axios.get(`http://localhost:3333/api/user/${post.user_id}`, {
+          const accountCreator = await axios.get(`http://localhost:3333/api/account/${post.account_id}`, {
             headers: {
               Authorization: `Bearer ${token}`,
             }
           });
-          const creator = userCreator.data.user;
+          const creator = accountCreator.data.account;
           return {
             id: post.id,
             avatarImage: creator.avatarImage,
-            username: creator.name,
+            accountname: creator.name,
             location: `${creator.state} - ${creator.city}`,
             image: `http://localhost:3333/uploads/${post.photo}`,
             description: post.description
@@ -86,7 +86,7 @@ function Feed() {
       }
     };
 
-    fetchUser();
+    fetchAccount();
     fetchPosts();
   }, [navigate, token]);
 
@@ -109,14 +109,14 @@ function Feed() {
             <Link to={'/sos'}><span className={`${styles.item} ${styles.alert}`}>S.O.S</span></Link>
             <Link to={'/instituicoes'}><span className={styles.item}>Encontrar instituições</span></Link>
         </div>
-        <div className={styles.userContainer}>
-          {currentUser ? (
-            <User.Short
-                image={currentUser.avatarImage || ""} // Replace with actual image URL
-                username={currentUser.name} // Replace with actual username
+        <div className={styles.accountContainer}>
+          {currentAccount ? (
+            <Account.Short
+                image={currentAccount.avatarImage || ""} // Replace with actual image URL
+                accountname={currentAccount.name} // Replace with actual accountname
                 />
           ) : (
-            <p>Loading user data...</p>
+            <p>Loading account data...</p>
           )}
           <button onClick={handleLogout} className={styles.logoutBtn}><img src="logout.png" alt="logout"/></button>
         </div>
@@ -125,8 +125,8 @@ function Feed() {
         <Search onSearch={handleSearch} />
       
       <section className={styles.createPostContainer}>
-        {currentUser ? (
-          <CreatePost userAvatar={currentUser.avatarImage} username={currentUser.name} />
+        {currentAccount ? (
+          <CreatePost accountAvatar={currentAccount.avatarImage} accountname={currentAccount.name} />
         ) : (
           <p>Loading create post section...</p>
         )}
@@ -141,7 +141,7 @@ function Feed() {
               key={post.id} // Use a unique identifier if available
               creatorProfile={post.avatarImage}
               image={post.image}
-              creatorName={post.username}
+              creatorName={post.accountname}
               location={post.location}
               description={post.description}
             />
