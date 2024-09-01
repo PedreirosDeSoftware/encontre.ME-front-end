@@ -5,7 +5,7 @@
 <path d="M150.545 14.4376H157.299L163.028 28.4069H163.292L169.021 14.4376H175.774V37H170.464V23.1409H170.277L164.856 36.8568H161.463L156.043 23.0638H155.856V37H150.545V14.4376ZM179.175 37V14.4376H194.907V18.8664H184.629V23.4934H194.103V27.9332H184.629V32.5713H194.907V37H179.175Z" fill="#F9FAFB"/>
 </g>
 <defs>
-<filter id="filter0_ii_114_1804" x="141.349" y="-1.55814" width="62.9764" height="54.0465" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<filter id="filter0_ii_114_1804" x="141.349" y="-1.55814" width="62.9764" height="54.0465" filterUnits="accountSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>

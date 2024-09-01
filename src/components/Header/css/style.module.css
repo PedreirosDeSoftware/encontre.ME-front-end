@@ -34,7 +34,7 @@
     color: var(--gray-800);
 }
 
-.userContainer {
+.accountContainer {
     display: flex;
     align-items: center;
 }

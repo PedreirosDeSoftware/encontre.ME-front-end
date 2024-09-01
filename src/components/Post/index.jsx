@@ -1,10 +1,10 @@
-import UserIcon from '../UserIcon';
+import AccountIcon from '../AccountIcon';
 import styles from './css/style.module.css';
 const Post = ({ creatorProfile, creatorName, location, description, image }) => {
   return (
     <div className={styles.postContainer}>
       <div className={styles.postHeader}>
-      <UserIcon avatarImage={creatorProfile} name={creatorName}/>
+      <AccountIcon avatarImage={creatorProfile} name={creatorName}/>
         <div className={styles.postInfo}>
           <p className={styles.profileName}>{creatorName}</p>
           <p className={styles.location}>{location}</p>

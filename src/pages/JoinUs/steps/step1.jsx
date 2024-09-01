@@ -2,7 +2,7 @@ import { ArrowLeft, ArrowRight } from '@phosphor-icons/react';
 import styles from '../css/style.module.css';
 import { InputComponent } from '../../../components/Input';
 
-export function StepFirst({ isUser, nextStep, prevStep, handleFormData }) {
+export function StepFirst({ isAccount, nextStep, prevStep, handleFormData }) {
     const handleChange = (e) => {
         const { name, value } = e.target;
         handleFormData({ [name]: value });
@@ -22,10 +22,10 @@ export function StepFirst({ isUser, nextStep, prevStep, handleFormData }) {
                     label={'Nome'}
                     name={'name'}
                     type={'text'}
-                    placeholder={isUser ? 'Digite seu nome' : 'Digite o nome da instituição'}
+                    placeholder={isAccount ? 'Digite seu nome' : 'Digite o nome da instituição'}
                     onChange={handleChange}
                 />
-                {!isUser && (
+                {!isAccount && (
                     <InputComponent
                         label={'Nome do dono'}
                         name={'authorName'}
@@ -43,10 +43,10 @@ export function StepFirst({ isUser, nextStep, prevStep, handleFormData }) {
                         onChange={handleChange}
                     />
                     <InputComponent
-                        label={isUser ? 'CPF' : 'CNPJ'}
+                        label={isAccount ? 'CPF' : 'CNPJ'}
                         name={'cnpj_cpf'}
                         type={'text'}
-                        placeholder={isUser ? 'Informe seu CPF' : 'Informe o CNPJ'}
+                        placeholder={isAccount ? 'Informe seu CPF' : 'Informe o CNPJ'}
                         onChange={handleChange}
                     />
                 </div>

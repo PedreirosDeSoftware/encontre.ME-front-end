@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styles from './css/style.module.css';
 import logo from './../../assets/Logo.svg'
-import User from "../User";
+import Account from "../Account";
 
 export function Header() {
     return(
@@ -14,8 +14,8 @@ export function Header() {
                 <Link to={'/sos'}>S.O.S</Link>
                 <Link to={'/instituicoes'}>Encontrar instituições</Link>
             </nav>
-            <div className={styles.userContainer}>
-                <User.Short image="https://avatars.githubusercontent.com/u/64737334?v=4" username="Ivandro Neto" />
+            <div className={styles.accountContainer}>
+                <Account.Short image="https://avatars.githubaccountcontent.com/u/64737334?v=4" accountname="Ivandro Neto" />
             </div>
         </header>
     )

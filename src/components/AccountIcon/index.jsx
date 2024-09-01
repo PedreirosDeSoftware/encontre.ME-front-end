@@ -19,7 +19,7 @@ const stringToColor = (string) => {
     return color;
 };
 
-const UserIcon = ({ name, avatarImage }) => {
+const AccountIcon = ({ name, avatarImage }) => {
     const initials = getInitials(name);
     const backgroundColor = stringToColor(name);
 
@@ -53,4 +53,4 @@ const UserIcon = ({ name, avatarImage }) => {
     );
 };
 
-export default UserIcon;
+export default AccountIcon;

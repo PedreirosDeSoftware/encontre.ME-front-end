@@ -4,21 +4,21 @@ import { createContext, useContext, useState } from "react";
 export const AuthContext = createContext(undefined);
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(localStorage.getItem("token"));
+  const [account, setAccount] = useState(localStorage.getItem("token"));
 
   const login = (token) => {
     localStorage.setItem("token", token);
-    setUser(token);
+    setAccount(token);
     console.log('DONE!')
   };
 
   const logout = () => {
     localStorage.removeItem("token");
-    setUser(null);
+    setAccount(null);
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ account, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

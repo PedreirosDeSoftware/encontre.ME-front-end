@@ -7,7 +7,7 @@ import { StepTerceary } from './steps/step3';
 
 function JoinUs() {
   const [step, setStep] = useState('default'); // default | step1 | step2 | step3
-  const [isUser, setIsUser] = useState(false);
+  const [isAccount, setIsAccount] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -59,8 +59,8 @@ function JoinUs() {
   return (
     <div className={styles.appContainer}>
       <div className={styles.container}>
-        {step === 'default' && <StepDefault setIsUser={setIsUser} nextStep={nextStep} />}
-        {step === 'step1' && <StepFirst isUser={isUser} nextStep={nextStep} prevStep={prevStep} handleFormData={handleFormData} />}
+        {step === 'default' && <StepDefault setIsAccount={setIsAccount} nextStep={nextStep} />}
+        {step === 'step1' && <StepFirst isAccount={isAccount} nextStep={nextStep} prevStep={prevStep} handleFormData={handleFormData} />}
         {step === 'step2' && <StepSecond nextStep={nextStep} prevStep={prevStep} handleFormData={handleFormData} />}
         {step === 'step3' && <StepTerceary prevStep={prevStep} handleFormData={handleFormData} formData={formData} onSubmit={handleSubmit} />}
       </div>
