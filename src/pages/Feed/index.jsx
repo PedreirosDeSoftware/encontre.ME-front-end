@@ -102,7 +102,7 @@ function Feed() {
     <main className={styles.container}>
       <nav className={styles.navbar}>
         <div className={styles.logoContainer}>
-          <img src="Logo.svg" alt="Logo" />
+          <img src="logo.svg" alt="Logo" />
         </div>
         <div className={styles.links}>
             <Link to={'/'}><span className={styles.item}>Encontrar pessoas</span></Link>
