@@ -464,3 +464,20 @@ div.pegadas1 img:nth-child(4) {
     font-size: 1.6rem;
     text-align: center;
 }
+
+/* Personalizando a largura da barra de rolagem */
+::-webkit-scrollbar {
+    width: 7px; /* Largura do scrollbar vertical */
+}
+
+/* Personalizando o fundo da barra de rolagem */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+/* Personalizando o polegar da barra de rolagem */
+::-webkit-scrollbar-thumb {
+    background: #227EDF;
+    border-radius: 10px;
+}
