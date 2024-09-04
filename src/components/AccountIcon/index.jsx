@@ -1,5 +1,3 @@
-import React from 'react';
-
 const getInitials = (name) => {
     const names = name.split(' ');
     const initials = names.map((n) => n[0]).join('').toUpperCase();
@@ -19,7 +17,7 @@ const stringToColor = (string) => {
     return color;
 };
 
-const AccountIcon = ({ name, avatarImage }) => {
+const AccountIcon = ({ name ="", avatarImage ="" }) => {
     const initials = getInitials(name);
     const backgroundColor = stringToColor(name);
 

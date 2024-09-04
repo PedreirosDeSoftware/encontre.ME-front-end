@@ -1,16 +1,16 @@
 import { ArrowLeft, Buildings, User } from '@phosphor-icons/react';
 import styles from '../css/style.module.css';
 
-export function StepDefault({ setIsUser, nextStep }) {
+export function StepDefault({ setIsAccount, nextStep }) {
 
     const handleUser = () => {
-        setIsUser(true);
+        setIsAccount(true);
         nextStep('step1');
         console.log('User selected');
     };
 
     const handleCompany = () => {
-        setIsUser(false);
+        setIsAccount(false);
         nextStep('step1');
         console.log('Company selected');
     };

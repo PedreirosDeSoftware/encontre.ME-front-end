@@ -33,7 +33,7 @@
   --3xl: 3rem;
   --2xl: 2.4rem;
   --xl: 2rem;
-  --base: 1.6rem;
+  --base: 1.4rem;
   --sm: 1.4rem;
 
 /*   color-scheme: light dark;
@@ -56,7 +56,6 @@
 }
 
 button {
-  apparence: none;
   border: none;
   background-color: transparent
 }

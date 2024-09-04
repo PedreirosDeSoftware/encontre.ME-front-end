@@ -7,13 +7,16 @@ import { useState } from 'react';
 export function StepTerceary({ prevStep, handleFormData, formData, onSubmit }) {
   const navigate = useNavigate();
   const [confirmed, setConfirmed] = useState('');
+
   const handleChange = (e) => {
     const { name, value } = e.target;
+    console.log(`Handling change for ${name} with value: ${value}`); // Debugging
     handleFormData({ [name]: value });
   };
 
   const handlePassConfirmedChange = (e) => {
     const { value } = e.target;
+    console.log(`Confirm password input: ${value}`); // Debugging
     setConfirmed(value);
   };
 
