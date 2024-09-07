@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { UseAuth } from "../../context/AuthContext";
 import { UploadedURI } from "../../utils/URI";
 import Post from "../../components/Post";
+import { Loading } from "../../components/Loading";
 
 const ProfilePage = () => {
   const navigate = useNavigate();
@@ -18,13 +19,13 @@ const ProfilePage = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [EditName, setEditName] = useState(false);
 
-  const contentNameRef = useRef(null); // Ref to the content_name div
+  const contentNameRef = useRef(null); // Ref para o div de nome do usuário
 
   const handleEditMode = () => {
     setEditName(true);
   };
 
-  const handleReturn = () => navigate('/');
+  const handleReturn = () => navigate('/feed');
 
   const handlePublish = async () => {
     const formData = new FormData();
@@ -65,10 +66,12 @@ const ProfilePage = () => {
       return `${UploadedURI}${currentAccount.avatarImage}`;
     }
     if (selectedImage) {
-      return selectedImage;
+      return URL.createObjectURL(selectedImage);
     }
     return 'defaultUser.png';
   };
+
+  
 
   useEffect(() => {
     if (!token) {
@@ -102,7 +105,7 @@ const ProfilePage = () => {
       }
     };
 
-    const fetchPosts = async () => {
+    const fetchPosts = async (userId) => {
       try {
         const response = await axios.get('http://localhost:3333/api/posts', {
           headers: {
@@ -111,25 +114,19 @@ const ProfilePage = () => {
         });
 
         const postList = response.data.posts || [];
-        const postPromises = postList.map(async (post) => {
-          const accountCreator = await axios.get(`http://localhost:3333/api/account/${post.account_id}`, {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            }
-          });
-          const creator = accountCreator.data.account;
-          return {
-            id: post.id,
-            avatarImage:`http://localhost:3333/uploads/${creator.avatarImage}` ,
-            accountname: creator.name,
-            location: `${creator.state} - ${creator.city}`,
-            image: `http://localhost:3333/uploads/${post.photo}`,
-            description: post.description
-          };
-        });
+        const filtered = postList.filter(post => post.account_id === userId);
 
-        const newPostList = await Promise.all(postPromises);
-        setPosts(newPostList);
+        const postPromises = filtered.map((post) => ({
+          id: post.id,
+          accountId: currentAccount.id,
+          avatarImage: `${UploadedURI}${currentAccount.avatarImage}`,
+          accountname: currentAccount.name,
+          location: `${currentAccount.state} - ${currentAccount.city}`,
+          image: `${UploadedURI}${post.photo}`,
+          description: post.description,
+        }));
+
+        setPosts(postPromises);
       } catch (error) {
         setError(error.message);
       } finally {
@@ -137,22 +134,24 @@ const ProfilePage = () => {
       }
     };
 
-    fetchAccount();
-    fetchPosts();
-  }, [navigate, token]);
+    if (currentAccount.id) {
+      fetchPosts(currentAccount.id);
+    } else {
+      fetchAccount();
+    }
+  }, [token, currentAccount.id]);
 
   const handleUpload = (e) => {
     const image = e.target.files[0];
     if (image) {
       setSelectedImage(image);
-      console.log("Imagem carregada:", image.name);
     }
   };
 
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (contentNameRef.current && !contentNameRef.current.contains(event.target)) {
-        setEditName(false); // Set EditName to false when clicking outside
+        setEditName(false);
       }
     };
 
@@ -162,6 +161,9 @@ const ProfilePage = () => {
     };
   }, [contentNameRef]);
 
+   // Display loading or error messages
+   if (loading) return <Loading />;
+   if (error) return navigate('/');
   return (
     <main className="cd__main">
       <button onClick={handleReturn} className={'logoutBtn'}>
@@ -181,30 +183,10 @@ const ProfilePage = () => {
                 onClick={handleEditMode}
               />
             </div>
-            <div className="content__bull">
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
           </div>
           <div className="content__actions">
             <a onClick={handlePublish} className={`${EditName ? 'enabled' : ''}`}>
               Salvar
-            </a>
-            <a href="#">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-                <path
-                  fill="currentColor"
-                  d="M208 352c-41 0-79.1-9.3-111.3-25-21.8 12.7-52.1 25-88.7 25a7.83 7.83 0 0 1-7.3-4.8 8 8 0 0 1 1.5-8.7c.3-.3 22.4-24.3 35.8-54.5-23.9-26.1-38-57.7-38-92C0 103.6 93.1 32 208 32s208 71.6 208 160-93.1 160-208 160z"
-                ></path>
-                <path
-                  fill="currentColor"
-                  d="M576 320c0 34.3-14.1 66-38 92 13.4 30.3 35.5 54.2 35.8 54.5a8 8 0 0 1 1.5 8.7 7.88 7.88 0 0 1-7.3 4.8c-36.6 0-66.9-12.3-88.7-25-32.2 15.8-70.3 25-111.3 25-86.2 0-160.2-40.4-191.7-97.9A299.82 299.82 0 0 0 208 384c132.3 0 240-86.1 240-192a148.61 148.61 0 0 0-1.3-20.1C522.5 195.8 576 253.1 576 320z"
-                ></path>
-              </svg>
-              <span>Message</span>
             </a>
           </div>
           <div className="content__title">
@@ -233,16 +215,15 @@ const ProfilePage = () => {
           <h1>No posts found...</h1>
         ) : (
           posts.map((post) => (
-            post.accountname === currentAccount.name?
-              (<Post
-              key={post.id}
-              creatorProfile={post.avatarImage}
-              image={post.image}
-              creatorName={post.accountname}
-              location={post.location}
-              description={post.description}
-              />)
-            : null
+              <Post
+                key={post.id}
+                creatorProfile={post.avatarImage}
+                image={post.image}
+                creatorName={post.accountname}
+                location={post.location}
+                description={post.description}
+                editable={true}
+              />
           ))
         )}
         </section>

@@ -35,7 +35,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.2rem;
+  gap: 1.5rem;
 }
 
 .title{
@@ -45,12 +45,40 @@
 }
 
 .x {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
   position: absolute;
-  top: 1rem;
-  left: 0;
+  top: 0;
+  left: -8rem;
   border: none;
   background: transparent;
-  apparence: none;
+  cursor: pointer;
+  transition: 500ms;
+  border-radius: 20px;
+  overflow: hidden;
+  width: auto;
+  max-width: 10rem;
+  width: 4.4rem;
+  background-color: var(--gray-300);
+}
+.x:hover{
+  background-color: #007bff;
+  width: 10rem;
+}
+
+.x::after{
+  position: absolute;
+  content: 'Voltar';
+  transform: translate(10vw);
+  transition: all 500ms;
+  right: 2rem;
+}
+
+.x:hover::after{
+  transform: translate(0);
+  color: var(--gray-50);
 }
 
 .title h1 {
@@ -90,6 +118,10 @@
 
 .icon1, .icon2{
   cursor: pointer;
+  color: var(--gray-800);
+}
+.icon1 svg, .icon2 svg{
+  fill: var(--gray-800);
 }
 
 .iconPosition {
@@ -117,6 +149,28 @@
   width: 100%;
   display: flex;
   justify-content: end;
+  cursor: pointer;
+}
+
+.submitButton{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  background-color: var(--gray-300);
+  border-radius: 20px;
+  transition: 500ms;
+}
+
+.submitButton:hover{
+  background-color: #007bff;
+  color: var(--gray-50);
+  gap: 1.5rem;
+}
+
+.submitButton:hover svg, .x:hover svg{
+  fill: var(--gray-50);
 }
 
 @media screen and (min-width: 900px) {

@@ -9,6 +9,8 @@ import Account from './../../components/Account';
 import { CreatePost } from '../../components/CreatePost';
 import { Loading } from '../../components/Loading';
 import { Sos } from '../../components/SVG/Sos';
+import { ErrorPopup } from '../../components/Popup';
+import { Info } from '../../components/Cards';
 
 function Feed() {
   const navigate = useNavigate();
@@ -16,6 +18,7 @@ function Feed() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [show, setShow] = useState(true)
   const { account: token, logout } = UseAuth();
 
   // Handle logout
@@ -24,7 +27,7 @@ function Feed() {
   // Fetch account data
   useEffect(() => {
     if (!token) {
-      navigate("/login");
+      navigate("/");
       return;
     }
 
@@ -76,7 +79,7 @@ function Feed() {
           })
         );
 
-        setPosts(newPostList);
+        setPosts(newPostList.reverse());
       } catch (error) {
         setError(error.message);
       } finally {
@@ -93,13 +96,21 @@ function Feed() {
     console.log('Search query:', query);
     // Implement search functionality here
   };
-
   // Display loading or error messages
+  
+  useEffect(()=>{
+    const timer = setTimeout(()=>{
+      setShow(false)
+    }, 5000)
+    
+    return () => clearTimeout(timer)
+  }, [show])
+  
   if (loading) return <Loading />;
-  if (error) return navigate('/login');
-
+  
   return (
-    <main className={styles.container}>
+    <>
+      {error && <ErrorPopup content={error} show={show}/>}
       {/* Navbar */}
       <nav className={styles.navbar}>
         <div className={styles.logoContainer}>
@@ -141,6 +152,27 @@ function Feed() {
           </button>
         </div>
       </nav>
+    <div className={styles.pageContainer}>
+
+    <aside>
+      <h1>Apoie instituições</h1>
+      <Account.Expanded image={''} accountname={'Institue something'} location={'Brasil, SP'}/>
+      <hr />
+      <Account.Expanded image={''} accountname={'Institue something'} location={'Brasil, SP'}/>
+      <hr />
+      <Account.Expanded image={''} accountname={'Institue something'} location={'Brasil, SP'}/>
+      <hr />
+      <Account.Expanded image={''} accountname={'Institue something'} location={'Brasil, SP'}/>
+      <hr />
+      <Account.Expanded image={''} accountname={'Institue something'} location={'Brasil, SP'}/>
+      <hr />
+      <Account.Expanded image={''} accountname={'Institue something'} location={'Brasil, SP'}/>
+      <hr />
+      <Account.Expanded image={''} accountname={'Institue something'} location={'Brasil, SP'}/>
+      <hr />
+      <Account.Expanded image={''} accountname={'Institue something'} location={'Brasil, SP'}/>
+    </aside>
+    <main className={styles.container}>
 
       {/* Search */}
       <Search onSearch={handleSearch} />
@@ -149,8 +181,8 @@ function Feed() {
       <section className={styles.createPostContainer}>
         {currentAccount ? (
           <CreatePost
-            accountAvatar={currentAccount.avatarImage ? `http://localhost:3333/uploads/${currentAccount.avatarImage}` : null}
-            accountname={currentAccount.name}
+          accountAvatar={currentAccount.avatarImage ? `http://localhost:3333/uploads/${currentAccount.avatarImage}` : null}
+          accountname={currentAccount.name}
           />
         ) : (
           <p>Loading create post section...</p>
@@ -164,17 +196,28 @@ function Feed() {
         ) : (
           posts.map((post) => (
             <Post
-              key={post.id}
-              creatorProfile={post.avatarImage}
-              image={post.image}
-              creatorName={post.accountname}
-              location={post.location}
-              description={post.description}
+            key={post.id}
+            creatorProfile={post.avatarImage}
+            image={post.image}
+            creatorName={post.accountname}
+            location={post.location}
+            description={post.description}
+            
             />
           ))
         )}
       </section>
     </main>
+    <aside>
+    <h1>Crises recentes</h1>
+      <Info/>
+      <hr />
+      <Info/>
+      <hr />
+      <Info/>
+    </aside>
+    </div>
+    </>
   );
 }
 

@@ -1,8 +1,9 @@
 import { ArrowLeft, Buildings, User } from '@phosphor-icons/react';
 import styles from '../css/style.module.css';
+import { useNavigate } from 'react-router-dom';
 
 export function StepDefault({ setIsAccount, nextStep }) {
-
+    const navigate = useNavigate()
     const handleUser = () => {
         setIsAccount(true);
         nextStep('step1');
@@ -18,7 +19,7 @@ export function StepDefault({ setIsAccount, nextStep }) {
     return (
         <>
             <div className={styles.title}>
-                <button className={styles.x} onClick={() => nextStep('default')}>
+                <button className={styles.x} onClick={() => navigate('/')}>
                     <ArrowLeft size={24} color='#111827' />
                 </button>
                 <h1>Junte-se a nós!</h1>

@@ -5,7 +5,41 @@
   align-items: center;
   width: 100%;
   gap: 2rem;
+  flex: 3;
 }
+
+.pageContainer{
+  display: flex;
+  justify-items: flex-start;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.pageContainer aside{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  min-height: 10rem;
+  max-height: 97dvh;
+  background-color: var(--gray-300);
+  position: -webkit-sticky;
+  position: sticky;
+  top: 1rem;
+  padding: 2rem;
+  border-radius: 20px;
+  gap: 1rem;
+  flex: 1;
+  overflow: auto;
+}
+
+.pageContainer aside h1{
+  font-size: 2rem;
+  font-weight: 900;
+  opacity: .8;
+  color: var(--rich-black);
+}
+
 .navbar{
   width: 100%;
   display: flex;

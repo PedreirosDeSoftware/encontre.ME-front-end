@@ -4,10 +4,12 @@ import { StepDefault } from './steps/default';
 import { StepFirst } from './steps/step1';
 import { StepSecond } from './steps/step2';
 import { StepTerceary } from './steps/step3';
+import { Loading } from '../../components/Loading';
 
 function JoinUs() {
   const [step, setStep] = useState('default'); // default | step1 | step2 | step3
   const [isAccount, setIsAccount] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -35,8 +37,8 @@ function JoinUs() {
 
   const handleSubmit = async () => {
     console.log('Submitting formData:', formData); // Check the formData before submission
-
     try {
+      setLoading(true)
       const response = await fetch('http://localhost:3333/api/register', {
         method: 'POST',
         headers: {
@@ -53,11 +55,17 @@ function JoinUs() {
       }
     } catch (error) {
       console.error('Network error:', error);
+    }finally{
+      setLoading(false)
     }
   };
 
+  if (loading) return <Loading />;
+
   return (
     <div className={styles.appContainer}>
+        <img src="Logo.svg" alt="Logo"/>
+
       <div className={styles.container}>
         {step === 'default' && <StepDefault setIsAccount={setIsAccount} nextStep={nextStep} />}
         {step === 'step1' && <StepFirst isAccount={isAccount} nextStep={nextStep} prevStep={prevStep} handleFormData={handleFormData} />}

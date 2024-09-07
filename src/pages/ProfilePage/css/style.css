@@ -84,18 +84,6 @@
   position: relative;
   background: linear-gradient(150deg, #1d8cf8 20%, #3358f4 100%);
 }
-.theme-orange .profile-page .content__cover {
-  background: linear-gradient(150deg, #ff4086 20%, #fd8d76 100%);
-}
-.theme-purple .profile-page .content__cover {
-  background: linear-gradient(150deg, #8700ff 20%, #f000ff 100%);
-}
-.theme-green .profile-page .content__cover {
-  background: linear-gradient(150deg, #1dcc45 20%, #42b883 100%);
-}
-.theme-blue .profile-page .content__cover {
-  background: linear-gradient(150deg, #0098f0 20%, #00f2c3 100%);
-}
 .profile-page .content__bull {
   display: none;
   height: 12rem;
@@ -300,65 +288,7 @@ input.enabled{
 .profile-page .content__actions a:first-child {
   color: #ff4086;
 }
-.theme-orange .profile-page .content__actions a:first-child {
-  color: #ff4086;
-}
-.theme-purple .profile-page .content__actions a:first-child {
-  color: #8700ff;
-}
-.theme-green .profile-page .content__actions a:first-child {
-  color: #1dcc45;
-}
-.theme-blue .profile-page .content__actions a:first-child {
-  color: #0098f0;
-}
-.profile-page .content__actions a:last-child {
-  color: #d782d9;
-}
-.theme-orange .profile-page .content__actions a:last-child {
-  color: #fd8d76;
-}
-.theme-purple .profile-page .content__actions a:last-child {
-  color: #f000ff;
-}
-.theme-green .profile-page .content__actions a:last-child {
-  color: #42b883;
-}
-.theme-blue .profile-page .content__actions a:last-child {
-  color: #00f2c3;
-}
-.profile-page .content__actions a:hover:first-child {
-  background: #1d8cf8;
-  color: #fff;
-}
-.theme-orange .profile-page .content__actions a:hover:first-child {
-  background: #ff4086;
-}
-.theme-purple .profile-page .content__actions a:hover:first-child {
-  background: #8700ff;
-}
-.theme-green .profile-page .content__actions a:hover:first-child {
-  background: #1dcc45;
-}
-.theme-blue .profile-page .content__actions a:hover:first-child {
-  background: #0098f0;
-}
-.profile-page .content__actions a:hover:last-child {
-  background: #1d8cf8;
-  color: #fff;
-}
-.theme-orange .profile-page .content__actions a:hover:last-child {
-  background: #fd8d76;
-}
-.theme-purple .profile-page .content__actions a:hover:last-child {
-  background: #f000ff;
-}
-.theme-green .profile-page .content__actions a:hover:last-child {
-  background: #42b883;
-}
-.theme-blue .profile-page .content__actions a:hover:last-child {
-  background: #00f2c3;
-}
+
 .profile-page .content__title {
   margin-top: 4.5rem;
   text-align: center;

@@ -1,0 +1,54 @@
+.card{
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  display: flex;
+  padding: 2rem;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+  border-radius: 20px;
+  transition: all 500ms;
+  opacity: 0;
+  transform: translate(-50%, -100vh);
+}
+
+.error{
+  color: var(--gray-50);
+  background-color: var(--error);
+}
+
+.succes{
+  color: var(--gray-50);
+  background-color: var(--error);
+}
+
+.show{
+  animation: appear 500ms forwards;
+}
+
+.hide{
+  animation: disappear 500ms backwards;
+}
+
+@keyframes appear{
+  from{
+    opacity: 0;
+    transform: translate(-50%, -100vh);
+  }
+  to{
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes disappear{
+  from{
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+  to{
+    opacity: 0;
+    transform: translate(-50%, -100vh);
+  }
+}
