@@ -5,6 +5,7 @@ import { StepFirst } from './steps/step1';
 import { StepSecond } from './steps/step2';
 import { StepTerceary } from './steps/step3';
 import { Loading } from '../../components/Loading';
+import { Link } from 'react-router-dom';
 
 function JoinUs() {
   const [step, setStep] = useState('default'); // default | step1 | step2 | step3
@@ -64,7 +65,6 @@ function JoinUs() {
 
   return (
     <div className={styles.appContainer}>
-        <img src="Logo.svg" alt="Logo"/>
 
       <div className={styles.container}>
         {step === 'default' && <StepDefault setIsAccount={setIsAccount} nextStep={nextStep} />}

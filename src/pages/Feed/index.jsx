@@ -8,9 +8,9 @@ import Search from './../../components/Search';
 import Account from './../../components/Account';
 import { CreatePost } from '../../components/CreatePost';
 import { Loading } from '../../components/Loading';
-import { Sos } from '../../components/SVG/Sos';
 import { ErrorPopup } from '../../components/Popup';
 import { Info } from '../../components/Cards';
+import {Buildings, User, WarningCircle } from '@phosphor-icons/react';
 
 function Feed() {
   const navigate = useNavigate();
@@ -46,7 +46,7 @@ function Feed() {
           if (accountResponse.data && accountResponse.data.account) {
             setCurrentAccount(accountResponse.data.account);
           } else {
-            navigate('/login');
+            navigate('/');
           }
         }
       } catch (error) {
@@ -117,21 +117,21 @@ function Feed() {
           <img src="Logo.svg" alt="Logo" />
         </div>
         <div className={styles.links}>
-          <Link to="/">
+          <Link to="/feed">
             <span className={styles.item}>
-              <img src="search.svg" alt="Search Icon" />
+              <User size={24}/>
               Encontrar pessoas
             </span>
           </Link>
           <Link to="/sos">
             <span className={`${styles.item} ${styles.alert}`}>
-              <Sos color="#F44556" />
+            <WarningCircle size={24} />
               S.O.S
             </span>
           </Link>
           <Link to="/instituicoes">
             <span className={styles.item}>
-              <img src="binocular.svg" alt="Binocular Icon" />
+              <Buildings size={24} />
               Encontrar instituições
             </span>
           </Link>
@@ -156,20 +156,6 @@ function Feed() {
 
     <aside>
       <h1>Apoie instituições</h1>
-      <Account.Expanded image={''} accountname={'Institue something'} location={'Brasil, SP'}/>
-      <hr />
-      <Account.Expanded image={''} accountname={'Institue something'} location={'Brasil, SP'}/>
-      <hr />
-      <Account.Expanded image={''} accountname={'Institue something'} location={'Brasil, SP'}/>
-      <hr />
-      <Account.Expanded image={''} accountname={'Institue something'} location={'Brasil, SP'}/>
-      <hr />
-      <Account.Expanded image={''} accountname={'Institue something'} location={'Brasil, SP'}/>
-      <hr />
-      <Account.Expanded image={''} accountname={'Institue something'} location={'Brasil, SP'}/>
-      <hr />
-      <Account.Expanded image={''} accountname={'Institue something'} location={'Brasil, SP'}/>
-      <hr />
       <Account.Expanded image={''} accountname={'Institue something'} location={'Brasil, SP'}/>
     </aside>
     <main className={styles.container}>

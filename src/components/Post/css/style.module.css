@@ -70,23 +70,53 @@
 
 .postActions {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  margin-top: 1rem;
+  padding: 1rem;
+  gap: 2rem;
 }
 
-.button {
+.x {
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 0.8rem 1.2rem;
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: #ffffff;
+  padding: 1rem;
   border: none;
-  border-radius: 0.4rem;
+  background: transparent;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: 500ms;
+  border-radius: 20px;
+  overflow: hidden;
+  width: auto;
+  max-width: 12rem;
+  width: 3.5rem;
+  background-color: var(--gray-300);
+}
+
+.x svg{
+  fill: var(--gray-600);
+  transition: 300ms;
+}
+
+.x:hover{
+  background-color: var(--primary-color);
+  width: 12rem;
+}
+
+.x:hover svg{
+  fill: var(--gray-50);
+}
+.x::after{
+  position: absolute;
+  content: 'Buscar';
+  transform: translate(10vw);
+  transition: all 500ms;
+  right: 2rem;
+}
+
+.x:hover::after{
+  transform: translate(0);
+  color: var(--gray-50);
 }
 .alert{
   background-color: var(--error);
@@ -94,18 +124,17 @@
 .alert:hover{
   background-color: var(--error-light);
 }
-.acheiButton {
-  background-color: #007bff;
+.acheiButton::after{
+  content: 'Achei';
 }
 
 .acheiButton:hover {
-  background-color: #0056b3;
+  background-color: var(--primary-color);
+  width: 10rem;
 }
-
-.shareButton {
-  background-color: #35DB5A;
+.shareButton::after{
+  content: 'Partilhar';
 }
-
 .shareButton:hover {
   background-color: #09dd37;
 }

@@ -54,9 +54,12 @@ function Login() {
 
   return (
     <div className={styles.container}>
+      
      {error && <ErrorPopup content={error} show={show}/>}
       <div className={styles.headerTitle}>
-      <img src="Logo.svg" alt="Logo"/>
+        <Link to={'/'}>
+          <img src="Logo.svg" alt="Logo"/>
+        </Link>
       <h1>Bem-vindo de volta</h1>
         <p>A sua ajuda pode fazer a diferença!</p>
       </div>

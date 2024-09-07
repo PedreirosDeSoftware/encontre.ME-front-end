@@ -2,6 +2,8 @@ import axios from 'axios';
 import AccountIcon from '../AccountIcon';
 import styles from './css/style.module.css';
 import { UseAuth } from '../../context/AuthContext';
+import {ShareNetwork, Star } from '@phosphor-icons/react';
+
 
 const Post = ({ creatorProfile, creatorName, location, description, image, editable=false }) => {
   
@@ -29,8 +31,12 @@ const Post = ({ creatorProfile, creatorName, location, description, image, edita
       <p className={styles.postDescription}>{description}</p>
       
       <div className={styles.postActions}>
-        <button className={`${styles.button} ${styles.acheiButton}`}>Achei!</button>
-        <button className={`${styles.button} ${styles.shareButton}`}>Share</button>
+        <button className={`${styles.x} ${styles.acheiButton}`}>
+          <Star/>
+        </button>
+        <button className={`${styles.x} ${styles.shareButton}`}>
+          <ShareNetwork />
+        </button>
       </div>
     </div>
   );

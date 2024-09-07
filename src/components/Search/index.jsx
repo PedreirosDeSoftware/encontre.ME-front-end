@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styles from './css/style.module.css';
+import {MagnifyingGlass } from '@phosphor-icons/react';
 
 const Search = ({ onSearch }) => {
   const [query, setQuery] = useState('');
@@ -19,8 +20,8 @@ const Search = ({ onSearch }) => {
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Quem deseja encontrar?"
       />
-      <button className={styles.searchButton} onClick={handleSearch}>
-        Buscar
+      <button className={styles.x} onClick={handleSearch}>
+        <MagnifyingGlass/>  
       </button>
     </div>
   );

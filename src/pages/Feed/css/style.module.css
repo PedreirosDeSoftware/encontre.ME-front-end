@@ -22,7 +22,7 @@
   height: auto;
   min-height: 10rem;
   max-height: 97dvh;
-  background-color: var(--gray-300);
+  background-color: var(--gray-200);
   position: -webkit-sticky;
   position: sticky;
   top: 1rem;
@@ -72,12 +72,21 @@
 }
 
 .links .item:hover {
-  color: var(--gray-700);
+  color: var(--primary-color);
 }
+.item svg{
+  fill: var(--rich-black);
+  transition: 300ms;
+}
+
+.item:hover svg{
+  fill: var(--primary-color);
+}
+
 .links .alert:hover{
   color: var(--error-light);
 }
-.links .alert:hover img{
+.links .alert:hover svg{
   fill: var(--error-light);
 }
 

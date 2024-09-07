@@ -1,4 +1,4 @@
-import { Images, X } from '@phosphor-icons/react';
+import { Images, X, ArrowSquareIn } from '@phosphor-icons/react';
 import { useState } from 'react';
 import AccountIcon from '../AccountIcon';
 import styles from './css/style.module.css';
@@ -14,7 +14,12 @@ export const CreatePost = ({ accountAvatar, accountname }) => {
       <AccountIcon name={accountname} avatarImage={accountAvatar} />
       
       <button className={styles.button} onClick={() => setIsOpenModal(true)}>
-        publique quem desapareceu
+        <div>
+          publique quem desapareceu
+          <span className={styles.icon}>
+            <ArrowSquareIn size={18} />
+          </span>
+        </div>
       </button>
 
       {isOpenModal && <ModalCreatePost setIsOpenModal={setIsOpenModal} />}
