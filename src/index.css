@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 :root {
   font-family: Roboto, sans-serif;
   line-height: 1.5;
@@ -5,12 +8,13 @@
 
   /* Colors */
   --primary-color: #2B92FF;
+  --primary-color-dark: #2676cc;
 
   --rich-black: #0d1321ff;
   --prussian-blue: #1d2d44ff;
   --paynes-gray: #3e5c76ff;
   --silver-lake-blue: #748cabff;
-  --eggshell: #f0ebd8ff;
+  --eggshell: #F9FAFB;
 
   --gray-50: #F9FAFB;
   --gray-100: #F3F4F6;
@@ -28,7 +32,7 @@
   --succes-light: #61ED80;
   --error: #DC3545;
   --error-light: #F44556;
-
+  --crisis: #DB504A;
   /* Font */
   --3xl: 3rem;
   --2xl: 2.4rem;
@@ -52,13 +56,10 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-size: 1.6rem;
-  color: var(--rich-black);
-}
-
-button {
-  border: none;
-  background-color: transparent
+  font-family: "Inter", sans-serif;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  scroll-behavior: smooth;
 }
 
 body {

@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import './css/global.css';
 import './css/desktop.css';
 import './css/mobile.css';
 import './css/tablet.css';

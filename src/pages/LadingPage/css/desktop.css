@@ -1,5 +1,5 @@
 body {
-    background-color: #F2F4F3;
+    background-color: var(--eggshell);
 }
 
 /* Container Styles */
@@ -28,18 +28,18 @@ body {
 
 .button-entrar {
     background-color: #a6a6a6;
-    color: white;
+    color: var(--eggshell);
     transition: .5s;
 }
 
 .button-junte-se {
-    background-color: #227EDF;
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--eggshell);
     transition: .5s;
 }
 
 .button-junte-se:hover {
-    background-color: #005bbc;
+    background-color: var(--primary-color-dark);
 }
 
 .button-entrar:hover {
@@ -47,18 +47,18 @@ body {
 }
 
 .buttons-blue {
-    background-color: #227EDF;
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--eggshell);
     transition: .5s;
 }
 
 .buttons-blue:hover {
-    background-color: #005bbc;
+    background-color: var(--primary-color-dark);
 }
 
 .buttons-white {
-    background-color: #FFFFFF;
-    color: black;
+    background-color: var(--eggshell);
+    color: var(--rich-black);
     transition: .5s;
 }
 
@@ -72,23 +72,23 @@ button, li {
 
 .buttons-blue a {
     text-decoration: none;
-    color: white;
+    color: var(--eggshell);
 }
 
 .buttons-white a {
     text-decoration: none;
-    color: black;
+    color: var(--rich-black);
 }
 
 li a {
     text-decoration: none;
-    color: black;
+    color: var(--rich-black);
 }
 
 /* Section Styles */
 .style-section {
-    background-color: #227EDF;
-    color: #FFFFFF;
+    background-color: var(--primary-color);
+    color: var(--eggshell);
     border-radius: 5rem;
     max-width: 70rem;
     width: auto;
@@ -121,7 +121,7 @@ header {
     height: 8.5rem;
     display: flex;
     position: fixed;
-    background-color: #F2F4F3;
+    background-color: var(--eggshell);
     z-index: 5;
 }
 
@@ -166,7 +166,7 @@ header li {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: #227EDF; /* Cor da bolinha */
+  background-color: var(--primary-color); /* Cor da bolinha */
   opacity: 0; /* Inicialmente a bolinha está invisível */
   transition: opacity 0.3s ease-in-out;
 }
@@ -240,8 +240,8 @@ main .img-initial div h1 {
 
 /* First Section Styles */
 .first-section {
-    background-color: #227EDF;
-    color: #FFFFFF;
+    background-color: var(--primary-color);
+    color: var(--eggshell);
     width: 75rem;
     height: auto;
     display: flex;
@@ -264,7 +264,7 @@ main .img-initial div h1 {
     position: absolute;
     width: 100%;
     height: 4px;
-    background-color: #F2F4F3;
+    background-color: var(--eggshell);
     border-radius: 10px;
     bottom: 0;
     left: 0;
@@ -273,7 +273,7 @@ main .img-initial div h1 {
 .first-section div {
     width: 23rem;
     height: 2px;
-    background-color: white;
+    background-color: var(--eggshell);
 }
 
 .first-section p {
@@ -368,7 +368,7 @@ div.pegadas1 img:nth-child(4) {
 }
 
 .sec-news .title-news div {
-    background-color: #227EDF;
+    background-color: var(--primary-color);
     width: 24rem;
     height: 2px;
 }
@@ -385,25 +385,25 @@ div.pegadas1 img:nth-child(4) {
     align-items: flex-start;
     gap: 2.2rem;
     padding: 9rem 7rem 9rem;
-    background-color: #DB504A;
+    background-color: var(--crisis);
 }
 
 .sec-news .news .cont-news h1 {
-    color: #F2F4F3;
+    color: var(--eggshell);
     font-size: 3.8rem;
     font-family: "Inter", sans-serif;
     font-weight: 900;
 }
 
 .sec-news .news .cont-news div {
-    background-color: #F2F4F3;
+    background-color: var(--eggshell);
     width: 20rem;
     height: 2px;
 }
 
 .sec-news .news .cont-news p {
     font-weight: 400;
-    color: white;
+    color: var(--eggshell);
     text-align: justify;
 }
 
@@ -454,7 +454,7 @@ div.pegadas1 img:nth-child(4) {
 .contact .cont-contact .title .line {
     width: 23rem;
     height: 2px;
-    background-color: #227EDF;
+    background-color: var(--primary-color);
     margin-top: 1.6rem;
     margin-bottom: 6.2rem;
 }
@@ -467,7 +467,7 @@ div.pegadas1 img:nth-child(4) {
 
 /* Personalizando o fundo da barra de rolagem */
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: var(--eggshell);
     border-radius: 10px;
 }
 
@@ -478,12 +478,12 @@ div.pegadas1 img:nth-child(4) {
 
 /* Estilo para o fundo da barra de rolagem */
 ::-webkit-scrollbar-track {
-    background: #f1f1f1; /* Cor do fundo */
+    background: var(--eggshell); /* Cor do fundo */
 }
 
 /* Estilo para o polegar da barra de rolagem */
 ::-webkit-scrollbar-thumb {
-    background-color: #227EDF; /* Cor do polegar */
+    background-color: var(--primary-color); /* Cor do polegar */
     border-radius: 10px; /* Bordas arredondadas */
-    border: 3px solid #f1f1f1; /* Espaço ao redor do polegar */
+    border: 3px solid var(--eggshell); /* Espaço ao redor do polegar */
 }
