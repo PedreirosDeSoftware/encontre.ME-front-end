@@ -25,7 +25,7 @@ function Login() {
     }
 
     try {
-      const response = await axios.post("http://localhost:3333/api/login", {
+      const response = await axios.post("https://encontre-me-back-end.onrender.com/api/login", {
         email,
         password,
       });

@@ -47,7 +47,7 @@ function ModalCreatePost({ setIsOpenModal }) {
   }
 
     try {
-      const authResponse = await axios.get("http://localhost:3333/api/account/authorization", {
+      const authResponse = await axios.get("https://encontre-me-back-end.onrender.com/api/account/authorization", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -58,7 +58,7 @@ function ModalCreatePost({ setIsOpenModal }) {
       }
 
       await axios.post(
-        `http://localhost:3333/api/account/${authResponse.data.authToken.id}/posts/create`,
+        `https://encontre-me-back-end.onrender.com/api/account/${authResponse.data.authToken.id}/posts/create`,
         formData,  // Envia o formData com o conteúdo e a imagem
         {
           headers: {

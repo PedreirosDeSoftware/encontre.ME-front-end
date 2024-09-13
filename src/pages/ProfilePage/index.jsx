@@ -35,7 +35,7 @@ const ProfilePage = () => {
     }
 
     try {
-      const authResponse = await axios.get("http://localhost:3333/api/account/authorization", {
+      const authResponse = await axios.get("https://encontre-me-back-end.onrender.com/api/account/authorization", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -46,7 +46,7 @@ const ProfilePage = () => {
       }
 
       await axios.put(
-        `http://localhost:3333/api/account/${authResponse.data.authToken.id}/edit`,
+        `https://encontre-me-back-end.onrender.com/api/account/${authResponse.data.authToken.id}/edit`,
         formData,
         {
           headers: {
@@ -81,14 +81,14 @@ const ProfilePage = () => {
 
     const fetchAccount = async () => {
       try {
-        const authResponse = await axios.get("http://localhost:3333/api/account/authorization", {
+        const authResponse = await axios.get("https://encontre-me-back-end.onrender.com/api/account/authorization", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
 
         if (authResponse.data.authToken) {
-          const accountResponse = await axios.get(`http://localhost:3333/api/account/${authResponse.data.authToken.id}`, {
+          const accountResponse = await axios.get(`https://encontre-me-back-end.onrender.com/api/account/${authResponse.data.authToken.id}`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -107,7 +107,7 @@ const ProfilePage = () => {
 
     const fetchPosts = async (userId) => {
       try {
-        const response = await axios.get('http://localhost:3333/api/posts', {
+        const response = await axios.get('https://encontre-me-back-end.onrender.com/api/posts', {
           headers: {
             Authorization: `Bearer ${token}`,
           },

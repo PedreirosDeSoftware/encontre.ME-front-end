@@ -1,1 +1,1 @@
-export const UploadedURI = 'http://localhost:3333/uploads/'
+export const UploadedURI = 'https://encontre-me-back-end.onrender.com/uploads/'

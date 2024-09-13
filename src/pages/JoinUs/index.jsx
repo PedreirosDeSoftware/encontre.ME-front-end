@@ -40,7 +40,7 @@ function JoinUs() {
     console.log('Submitting formData:', formData); // Check the formData before submission
     try {
       setLoading(true)
-      const response = await fetch('http://localhost:3333/api/register', {
+      const response = await fetch('https://encontre-me-back-end.onrender.com/api/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

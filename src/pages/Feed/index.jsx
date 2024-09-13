@@ -33,13 +33,13 @@ function Feed() {
 
     const fetchAccount = async () => {
       try {
-        const authResponse = await axios.get("http://localhost:3333/api/account/authorization", {
+        const authResponse = await axios.get("https://encontre-me-back-end.onrender.com/api/account/authorization", {
           headers: { Authorization: `Bearer ${token}` },
         });
 
         const authToken = authResponse.data.authToken;
         if (authToken) {
-          const accountResponse = await axios.get(`http://localhost:3333/api/account/${authToken.id}`, {
+          const accountResponse = await axios.get(`https://encontre-me-back-end.onrender.com/api/account/${authToken.id}`, {
             headers: { Authorization: `Bearer ${token}` },
           });
 
@@ -56,24 +56,24 @@ function Feed() {
 
     const fetchPosts = async () => {
       try {
-        const response = await axios.get('http://localhost:3333/api/posts', {
+        const response = await axios.get('https://encontre-me-back-end.onrender.com/api/posts', {
           headers: { Authorization: `Bearer ${token}` },
         });
 
         const postList = response.data.posts || [];
         const newPostList = await Promise.all(
           postList.map(async (post) => {
-            const accountCreator = await axios.get(`http://localhost:3333/api/account/${post.account_id}`, {
+            const accountCreator = await axios.get(`https://encontre-me-back-end.onrender.com/api/account/${post.account_id}`, {
               headers: { Authorization: `Bearer ${token}` },
             });
 
             const creator = accountCreator.data.account;
             return {
               id: post.id,
-              avatarImage: creator.avatarImage ? `http://localhost:3333/uploads/${creator.avatarImage}` : null,
+              avatarImage: creator.avatarImage ? `https://encontre-me-back-end.onrender.com/uploads/${creator.avatarImage}` : null,
               accountname: creator.name,
               location: `${creator.state} - ${creator.city}`,
-              image: `http://localhost:3333/uploads/${post.photo}`,
+              image: `https://encontre-me-back-end.onrender.com/uploads/${post.photo}`,
               description: post.description,
             };
           })
@@ -140,7 +140,7 @@ function Feed() {
           {currentAccount ? (
           <Link to={"/profile"}>
             <Account.Short
-            image={currentAccount.avatarImage ? `http://localhost:3333/uploads/${currentAccount.avatarImage}` : ""}
+            image={currentAccount.avatarImage ? `https://encontre-me-back-end.onrender.com/uploads/${currentAccount.avatarImage}` : ""}
             accountname={currentAccount.name}
             />
             </Link>
@@ -167,7 +167,7 @@ function Feed() {
       <section className={styles.createPostContainer}>
         {currentAccount ? (
           <CreatePost
-          accountAvatar={currentAccount.avatarImage ? `http://localhost:3333/uploads/${currentAccount.avatarImage}` : null}
+          accountAvatar={currentAccount.avatarImage ? `https://encontre-me-back-end.onrender.com/uploads/${currentAccount.avatarImage}` : null}
           accountname={currentAccount.name}
           />
         ) : (
