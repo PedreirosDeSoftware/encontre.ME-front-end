@@ -65,10 +65,10 @@ const ProfilePage = () => {
     if (currentAccount.avatarImage) {
       return `${UploadedURI}${currentAccount.avatarImage}`;
     }
-    if (selectedImage) {
+  if (selectedImage) {
       return URL.createObjectURL(selectedImage);
     }
-    return 'defaultUser.png';
+    return 'User.png';
   };
 
   

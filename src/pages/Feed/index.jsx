@@ -198,9 +198,7 @@ function Feed() {
     <h1>Crises recentes</h1>
       <Info/>
       <hr />
-      <Info/>
-      <hr />
-      <Info/>
+   
     </aside>
     </div>
     </>
